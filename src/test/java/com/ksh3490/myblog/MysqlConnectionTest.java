@@ -1,7 +1,6 @@
 package com.ksh3490.myblog;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
