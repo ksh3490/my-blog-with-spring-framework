@@ -57,4 +57,53 @@ public class BoardDAOTest {
 		}
 	}
 	
+	@Test @Ignore
+	public void testInsertBoard() throws Exception {
+		BoardVO boardVO = new BoardVO();
+		boardVO.setCate_cd("1");
+		boardVO.setTitle("첫 번째 게시글입니다.");
+		boardVO.setContent("첫 번째 게시글의 내용입니다.");
+		boardVO.setTag("태그 1");
+		boardVO.setReg_id("첫 작성자");
+		
+		int result = boardDAO.insertBoard(boardVO);
+		logger.info("\n Insert Board Result " + result);
+		
+		if(result == 1) {
+			logger.info("\n 게시물 등록 성공 ");
+		}else {
+			logger.info("\n 게시물 등록 실패");			
+		}
+	}
+	
+	@Test @Ignore
+	public void testUpdateBoard() throws Exception{
+		BoardVO boardVO = new BoardVO();
+		boardVO.setBid(1);
+		boardVO.setCate_cd("1");
+		boardVO.setTitle("첫 번째 게시글입니다.-수정");
+		boardVO.setContent("첫 번째 게시글의 내용입니다.-수정");
+		boardVO.setTag("태그 1-수정");
+		
+		int result = boardDAO.updateBoard(boardVO);
+		logger.info("\n Update Board Result \n ");
+		
+		if(result > 0) {
+			logger.info("\n 게시물 수정 성공 ");
+		}else {
+			logger.info("\n 게시물 수정 실패");			
+		}
+	}
+	
+	@Test @Ignore
+	public void testUpdateViewCnt() throws Exception{
+		int result = boardDAO.updateViewCnt(1);
+		logger.info("\n Update View Count Result \n ");
+		if(result > 0) {
+			logger.info("\n 게시물 조회수 업데이트 성공 ");
+		}else {
+			logger.info("\n 게시물 조회수 업데이트 실패");		
+		}
+	}
+	
 }
