@@ -2,11 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
 		http://mybatis.org/schema/mybatis-spring 
 		http://mybatis.org/schema/mybatis-spring.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
+	<!-- Added Setting to use @Repository annotation -->
+	<context:component-scan base-package="com.ksh3490.myblog.board.dao"></context:component-scan>
+	<context:component-scan base-package="com.ksh3490.myblog.board.service"></context:component-scan>
+	
 	<!-- dataSource Object Setting -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
