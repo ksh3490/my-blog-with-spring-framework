@@ -39,7 +39,7 @@ public class BoardDAOTest {
 		}
 	}
 	
-	@Test @Ignore
+	@Test
 	public void testGetBoardContent() throws Exception{
 		BoardVO boardVO = boardDAO.getBoardContent(1);
 		logger.info("\n Board List \n ");
@@ -57,7 +57,7 @@ public class BoardDAOTest {
 		}
 	}
 	
-	@Test @Ignore
+	@Test
 	public void testInsertBoard() throws Exception {
 		BoardVO boardVO = new BoardVO();
 		boardVO.setCate_cd("1");
@@ -76,7 +76,7 @@ public class BoardDAOTest {
 		}
 	}
 	
-	@Test @Ignore
+	@Test
 	public void testUpdateBoard() throws Exception{
 		BoardVO boardVO = new BoardVO();
 		boardVO.setBid(1);
@@ -95,7 +95,7 @@ public class BoardDAOTest {
 		}
 	}
 	
-	@Test @Ignore
+	@Test
 	public void testDeleteBoard() throws Exception{
 		int result =boardDAO.deleteBoard(1);
 		logger.info("\n Delete Board Result \n ");
@@ -106,7 +106,7 @@ public class BoardDAOTest {
 		}
 	}
 	
-	@Test @Ignore
+	@Test
 	public void testUpdateViewCnt() throws Exception{
 		int result = boardDAO.updateViewCnt(1);
 		logger.info("\n Update View Count Result \n ");
