@@ -96,6 +96,17 @@ public class BoardDAOTest {
 	}
 	
 	@Test @Ignore
+	public void testDeleteBoard() throws Exception{
+		int result =boardDAO.deleteBoard(1);
+		logger.info("\n Delete Board Result \n ");
+		if(result > 0) {
+			logger.info("\n 게시물 삭제 성공");			
+		}else {
+			logger.info("\n 게시물 삭제 실패");						
+		}
+	}
+	
+	@Test @Ignore
 	public void testUpdateViewCnt() throws Exception{
 		int result = boardDAO.updateViewCnt(1);
 		logger.info("\n Update View Count Result \n ");
