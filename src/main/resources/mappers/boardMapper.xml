@@ -33,7 +33,7 @@
 	</insert>
 	<update id="updateBoard" parameterType="com.ksh3490.myblog.board.model.BoardVO">
 		UPDATE TBL_BOARD SET
-			CATE_ID = #{cate_cd},
+			CATE_CD = #{cate_cd},
 			TITLE = #{title},
 			CONTENT = #{content},
 			TAG = #{tag},
