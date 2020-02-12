@@ -15,7 +15,6 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO boardDAO;
 	
-	@Override
 	public List<BoardVO> getBoardList() throws Exception {
 		// TODO Auto-generated method stub
 		return boardDAO.getBoardList();
