@@ -6,5 +6,5 @@ import com.ksh3490.myblog.board.model.BoardVO;
 
 public interface BoardService {
 	public List<BoardVO> getBoardList() throws Exception;
-	
+	public void insertBoard(BoardVO boardVO) throws Exception;
 }

@@ -1,6 +1,7 @@
 package com.ksh3490.myblog.board.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -18,6 +19,12 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> getBoardList() throws Exception {
 		// TODO Auto-generated method stub
 		return boardDAO.getBoardList();
+	}
+
+	@Override
+	public void insertBoard(BoardVO boardVO) throws Exception {
+		// TODO Auto-generated method stub
+		boardDAO.insertBoard(boardVO);
 	}
 
 }
