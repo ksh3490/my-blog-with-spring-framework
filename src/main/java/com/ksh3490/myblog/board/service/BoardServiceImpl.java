@@ -27,4 +27,11 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.insertBoard(boardVO);
 	}
 
+	@Override
+	public BoardVO getBoardContent(int bid) throws Exception {
+		// TODO Auto-generated method stub
+		boardDAO.updateViewCnt(bid);
+		return boardDAO.getBoardContent(bid);
+	}
+
 }
