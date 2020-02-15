@@ -19,8 +19,24 @@
 </head>
 <body>
 	<article>
-	
+		<div class="container" role="main">
+			<h2>Board Content</h2>
+			
+			<div class="bg-white rounded shadow-sm">
+				<div class="board-title"><c:out value="${boardContent.title }"/></div>
+				<div class="board_info_box">
+					<span class="board_author"><c:out value="${boardContent.reg_id }"/></span>
+					<span class="board_date"><c:out value="${boardContent.reg_dt }"/></span>
+				</div>
+				<div class="board_content">${boardContent.content }</div>
+				<div class="board_tag">태그: <c:out value="${boardContent.tag }"/></div>
+			</div>
+			<div style="margin-top:20px">
+			<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
+			<button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
+			<button type="button" class="btn btn-sm btn-primary" id="btnList">목록으로</button>
+			</div>			 
+		</div>
 	</article>
-
 </body>
 </html>
