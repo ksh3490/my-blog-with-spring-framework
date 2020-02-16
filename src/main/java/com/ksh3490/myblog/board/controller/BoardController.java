@@ -43,5 +43,12 @@ public class BoardController {
 		model.addAttribute("boardContent", boardService.getBoardContent(bid));
 		return "board/boardContent";
 	}
-
+	
+	@RequestMapping(value = "/editForm", method = RequestMethod.GET)
+	public String editForm(@RequestParam("bid") int bid, @RequestParam("mode") String mode, Model model) throws Exception {
+		model.addAttribute("boardContent", boardService.getBoardContent(bid));
+		model.addAttribute("mode", mode);
+		model.addAttribute("boardVO", new BoardVO());
+		return "board/boardForm";
+	}
 }

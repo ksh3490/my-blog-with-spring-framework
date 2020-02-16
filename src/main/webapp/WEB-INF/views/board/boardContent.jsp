@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 
@@ -12,9 +12,20 @@
 <title>board</title>
 
 <script>
+	// Back to List Event
 	$(document).on("click", "#btnList", function(){
 		location.href = "${pageContext.request.contextPath}/board/getBoardList";
 	});
+	
+	// Update Button Click Event
+	$(document).on("click", "#btnUpdate", function(){
+		var url = "${pageContext.request.contextPath}/board/editForm";
+		url = url + "?bid=" + ${boardContent.bid};
+		url = url + "&mode=edit";
+		
+		location.href = url;
+	});
+	
 </script>
 </head>
 <body>
@@ -23,7 +34,7 @@
 			<h2>Board Content</h2>
 			
 			<div class="bg-white rounded shadow-sm">
-				<div class="board-title"><c:out value="${boardContent.title }"/></div>
+				<div class="board_title"><c:out value="${boardContent.title }"/></div>
 				<div class="board_info_box">
 					<span class="board_author"><c:out value="${boardContent.reg_id }"/></span>
 					<span class="board_date"><c:out value="${boardContent.reg_dt }"/></span>
