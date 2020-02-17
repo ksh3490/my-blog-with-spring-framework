@@ -27,11 +27,14 @@
 	$(document).ready(function(){
 		var mode = '<c:out value="${mode}"/>';
 		if(mode == "edit"){
-			// Insert Form Setting
+			// Preparing Insert Form
 			$("#reg_id").prop("readonly", true);
-			$("input:hidden[name="bid"]").val('<c:out value="${boardContent.bid}"/>');
-			$("input:hidden[name="mode"]").val('<c:out value="${mode}"/>');
+			$('input:hidden[name="bid"]').val('<c:out value="${boardContent.bid}"/>');
+			$('input:hidden[name="mode"]').val('<c:out value="${mode}"/>');
 			$("#reg_id").val('<c:out value="${boardContent.reg_id}"/>');
+			$("#title").val('<c:out value="${boardContent.title}"/>');
+			$("#content").val('<c:out value="${boardContent.content}"/>');
+			$("#tag").val('<c:out value="${boardContent.tag}"/>');
 		}
 	});
 </script>
