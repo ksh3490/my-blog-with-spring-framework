@@ -18,7 +18,7 @@
 	<!-- dataSource Object Setting -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/myblogdb?useSSL=false&amp;serverTimezone=Asia/Seoul"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/myblogdb?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
 		<property name="username" value="bloguser" />
 		<property name="password" value="myblog" />
 	</bean>
