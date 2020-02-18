@@ -33,8 +33,15 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/saveBoard", method = RequestMethod.POST)
-	public String saveBoard(@ModelAttribute("BoardVO") BoardVO boardVO, RedirectAttributes rttr) throws Exception{
-		boardService.insertBoard(boardVO);
+	public String saveBoard(@ModelAttribute("BoardVO") BoardVO boardVO, 
+			@RequestParam("mode") String mode, 
+			RedirectAttributes rttr) throws Exception{
+		if(mode.equals("edit")) {
+			boardService.updateBoard(boardVO);
+		}else {
+			boardService.insertBoard(boardVO);
+		}
+		
 		return "redirect:/board/getBoardList";
 	}
 	
@@ -50,5 +57,12 @@ public class BoardController {
 		model.addAttribute("mode", mode);
 		model.addAttribute("boardVO", new BoardVO());
 		return "board/boardForm";
+	}
+	
+	@RequestMapping(value = "/deleteBoard", method = RequestMethod.GET)
+	public String deleteBoard(RedirectAttributes rttr, @RequestParam("bid") int bid) throws Exception {
+		boardService.deleteBoard(bid);
+		return "redirect:/board/getBoardList";
+		
 	}
 }
