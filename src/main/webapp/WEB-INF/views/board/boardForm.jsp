@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@
 	
 	$(document).ready(function(){
 		var mode = '<c:out value="${mode}"/>';
+		console.log(mode);
 		if(mode == "edit"){
 			// Preparing Insert Form
 			$("#reg_id").prop("readonly", true);
