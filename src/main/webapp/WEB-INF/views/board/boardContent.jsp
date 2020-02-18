@@ -17,12 +17,19 @@
 		location.href = "${pageContext.request.contextPath}/board/getBoardList";
 	});
 	
-	// Update Button Click Event
+	// Update Button Event
 	$(document).on("click", "#btnUpdate", function(){
 		var url = "${pageContext.request.contextPath}/board/editForm";
 		url = url + "?bid=" + ${boardContent.bid};
 		url = url + "&mode=edit";
 		
+		location.href = url;
+	});
+	
+	//Delete Button Event
+	$(document).on("click", "#btnDelete", function(){
+		var url = "${pageContext.request.contextPath}/board/deleteBoard";
+		url = url + "?bid=" + ${boardContent.bid};
 		location.href = url;
 	});
 	
