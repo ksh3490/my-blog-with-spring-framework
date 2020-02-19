@@ -35,6 +35,7 @@
 		UPDATE TBL_BOARD SET
 			CATE_CD = #{cate_cd},
 			TITLE = #{title},
+			TITLE = CONCAT("[수정]", TITLE),
 			CONTENT = #{content},
 			TAG = #{tag},
 			EDIT_DT = now()
