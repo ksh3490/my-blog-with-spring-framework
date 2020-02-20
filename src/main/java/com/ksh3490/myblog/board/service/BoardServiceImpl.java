@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ksh3490.myblog.board.dao.BoardDAO;
 import com.ksh3490.myblog.board.model.BoardVO;
+import com.ksh3490.myblog.error.controller.NotFoundException;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -34,10 +35,13 @@ public class BoardServiceImpl implements BoardService {
 		// return boardDAO.getBoardContent(bid);
 		
 		// To test exception handle
-		boardVO.setBid(bid);
-		boardVO.setCate_cd("1111111111111111111111111111111111111");
-		boardDAO.updateBoard(boardVO);
-		
+		try {
+			boardVO.setBid(bid);
+			boardVO.setCate_cd("1111111111111111111111111111111111111");
+			boardDAO.updateBoard(boardVO);
+		}catch(RuntimeException e){
+			throw new NotFoundException();
+		}
 		return boardVO;
 		// To test exception handle
 	}
