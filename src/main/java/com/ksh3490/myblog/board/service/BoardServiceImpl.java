@@ -32,18 +32,15 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		BoardVO boardVO = new BoardVO();
 		boardDAO.updateViewCnt(bid);
-		// return boardDAO.getBoardContent(bid);
+//		boardVO = boardDAO.getBoardContent(bid);
 		
-		// To test exception handle
-		try {
-			boardVO.setBid(bid);
-			boardVO.setCate_cd("1111111111111111111111111111111111111");
-			boardDAO.updateBoard(boardVO);
-		}catch(RuntimeException e){
-			throw new NotFoundException();
-		}
+		// To Cause the Exception
+		boardVO.setBid(bid);
+		boardVO.setCate_cd("1111111111111111111111111111111111111");   
+		boardDAO.updateBoard(boardVO);
+		
 		return boardVO;
-		// To test exception handle
+
 	}
 
 	@Override

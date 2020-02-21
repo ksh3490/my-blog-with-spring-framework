@@ -67,9 +67,9 @@ public class BoardController {
 		
 	}
 	
-//	@ExceptionHandler(RuntimeException.class)
-//	public String exceptionHandler(Model model, Exception e) {
-//		model.addAttribute("exception", e);
-//		return "error/exception";
-//	}
+	@ExceptionHandler(RuntimeException.class)
+	public String exceptionHandler(Model model, Exception e) {
+		model.addAttribute("exception", e);
+		return "error/exception";
+	}
 }
