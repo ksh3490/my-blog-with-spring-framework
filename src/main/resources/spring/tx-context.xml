@@ -34,5 +34,5 @@
 	-->
 	
 	<!-- @Transactional Annotation Setting -->
-	<tx:annotation-diven/>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
