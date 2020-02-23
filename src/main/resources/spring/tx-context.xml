@@ -17,22 +17,24 @@
 	</bean>
 
 	<!-- AOP Setting for TX -->
-	<!--
+	
 	<aop:config proxy-target-class="true">
 		<aop:pointcut id="servicePublicMethod" expression="execution(public * com.ksh3490.myblog.board..*(int))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePublicMethod"/>
 	</aop:config>
-	-->
+	
 	
 	<!-- Declarative TX Setting -->
-	<!--
+	
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="getBoardContent" rollback-for="Exception"/>
 		</tx:attributes>
 	</tx:advice>
-	-->
+	
 	
 	<!-- @Transactional Annotation Setting -->
+	<!--  
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	-->
 </beans>
