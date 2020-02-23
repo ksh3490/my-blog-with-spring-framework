@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.ksh3490.myblog.board.dao.BoardDAO;
 import com.ksh3490.myblog.board.model.BoardVO;
@@ -26,7 +28,9 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		boardDAO.insertBoard(boardVO);
 	}
-
+	
+	
+//	@Transactional(rollbackFor=RuntimeException.class)
 	@Override
 	public BoardVO getBoardContent(int bid) throws Exception {
 		// TODO Auto-generated method stub
@@ -35,9 +39,14 @@ public class BoardServiceImpl implements BoardService {
 //		boardVO = boardDAO.getBoardContent(bid);
 		
 		// To Cause the Exception
-		boardVO.setBid(bid);
-		boardVO.setCate_cd("1111111111111111111111111111111111111");   
-		boardDAO.updateBoard(boardVO);
+		try {
+			boardVO.setBid(bid);
+			boardVO.setCate_cd("1111111111111111111111111111111111111");   
+			boardDAO.updateBoard(boardVO);
+		}catch(RuntimeException e) {
+//			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+			throw new NotFoundException();
+		}
 		
 		return boardVO;
 
