@@ -30,23 +30,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	
-//	@Transactional(rollbackFor=RuntimeException.class)
+	@Transactional
 	@Override
 	public BoardVO getBoardContent(int bid) throws Exception {
 		// TODO Auto-generated method stub
 		BoardVO boardVO = new BoardVO();
 		boardDAO.updateViewCnt(bid);
-//		boardVO = boardDAO.getBoardContent(bid);
-		
-		// To Cause the Exception
-		try {
-			boardVO.setBid(bid);
-			boardVO.setCate_cd("1111111111111111111111111111111111111");   
-			boardDAO.updateBoard(boardVO);
-		}catch(RuntimeException e) {
-//			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-			throw new NotFoundException();
-		}
+		boardVO = boardDAO.getBoardContent(bid);
 		
 		return boardVO;
 
