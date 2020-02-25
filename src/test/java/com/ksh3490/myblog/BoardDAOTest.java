@@ -26,6 +26,7 @@ public class BoardDAOTest {
 	@Inject
 	private BoardDAO boardDAO;
 	
+	@Ignore
 	@Test
 	public void testGetBoardList() throws Exception{
 		List<BoardVO> boardList = boardDAO.getBoardList();
@@ -39,6 +40,7 @@ public class BoardDAOTest {
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void testGetBoardContent() throws Exception{
 		BoardVO boardVO = boardDAO.getBoardContent(1);
@@ -61,21 +63,26 @@ public class BoardDAOTest {
 	public void testInsertBoard() throws Exception {
 		BoardVO boardVO = new BoardVO();
 		boardVO.setCate_cd("1");
-		boardVO.setTitle("첫 번째 게시글입니다.");
-		boardVO.setContent("첫 번째 게시글의 내용입니다.");
-		boardVO.setTag("태그 1");
-		boardVO.setReg_id("첫 작성자");
+//		boardVO.setTitle("첫 번째 게시글입니다.");
+//		boardVO.setContent("첫 번째 게시글의 내용입니다.");
+		boardVO.setTag("Test");
+		boardVO.setReg_id("Test");
 		
-		int result = boardDAO.insertBoard(boardVO);
-		logger.info("\n Insert Board Result " + result);
-		
-		if(result == 1) {
-			logger.info("\n 게시물 등록 성공 ");
-		}else {
-			logger.info("\n 게시물 등록 실패");			
+		for(int i = 1; i < 124; i++) {
+			boardVO.setTitle(i + "번째 게시물입니다(TEST)");
+			boardVO.setContent(i + "번째 게시물입니다(TEST)");
+			int result = boardDAO.insertBoard(boardVO);
+			logger.info("\n Insert Board Result " + result);
+			
+			if(result == 1) {
+				logger.info("\n 게시물 등록 성공 ");
+			}else {
+				logger.info("\n 게시물 등록 실패");			
+			}
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void testUpdateBoard() throws Exception{
 		BoardVO boardVO = new BoardVO();
@@ -95,6 +102,7 @@ public class BoardDAOTest {
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void testDeleteBoard() throws Exception{
 		int result =boardDAO.deleteBoard(1);
@@ -106,6 +114,7 @@ public class BoardDAOTest {
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void testUpdateViewCnt() throws Exception{
 		int result = boardDAO.updateViewCnt(1);
