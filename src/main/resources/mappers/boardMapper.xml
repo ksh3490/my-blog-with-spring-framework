@@ -9,6 +9,7 @@
 			BID, CATE_CD, TITLE, CONTENT, TAG, VIEW_CNT, REG_ID, REG_DT, EDIT_DT
 		FROM
 			TBL_BOARD
+		LIMIT #{startList}, #{listSize}
 	</select>
 	<select id="getBoardContent" resultType="com.ksh3490.myblog.board.model.BoardVO" parameterType="com.ksh3490.myblog.board.model.BoardVO">
 		SELECT
@@ -17,6 +18,12 @@
 			TBL_BOARD
 		WHERE
 			BID = #{bid}
+	</select>
+	<select id="getBoardListCnt">
+		SELECT
+			count(*) as listCnt
+		FROM
+			TBL_BOARD
 	</select>
 	<insert id="insertBoard" parameterType="com.ksh3490.myblog.board.model.BoardVO">
 		INSERT INTO TBL_BOARD (CATE_CD, TITLE, CONTENT, TAG, VIEW_CNT, REG_ID, REG_DT, EDIT_DT)

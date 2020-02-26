@@ -55,4 +55,10 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.deleteBoard(bid);
 	}
 
+	@Override
+	public int getBoardListCnt() throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.getBoardListCnt();
+	}
+
 }

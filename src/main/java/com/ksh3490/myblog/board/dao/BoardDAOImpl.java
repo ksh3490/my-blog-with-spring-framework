@@ -51,4 +51,10 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.update("com.ksh3490.myblog.board.boardMapper.updateViewCnt", bid);
 	}
 
+	@Override
+	public int getBoardListCnt() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("com.ksh3490.myblog.board.boardMapper.getBoardListCnt");
+	}
+
 }
