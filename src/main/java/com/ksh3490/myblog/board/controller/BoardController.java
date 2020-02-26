@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ksh3490.myblog.board.model.BoardVO;
 import com.ksh3490.myblog.board.service.BoardService;
+import com.ksh3490.myblog.common.Pagination;
 
 
 @Controller
@@ -23,8 +25,20 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value = "/getBoardList", method = RequestMethod.GET)
-	public String getBoardList(Model model) throws Exception{
-		model.addAttribute("boardList", boardService.getBoardList());
+	public String getBoardList(Model model,
+			@RequestParam(required = false, defaultValue = "1") int page,
+			@RequestParam(required = false, defaultValue = "1") int range
+			) throws Exception{
+		
+		//Total Number of Board
+		int listCnt = boardService.getBoardListCnt();
+		
+		//Creating Pagination Object
+		Pagination pagination = new Pagination();
+		pagination.pageInfo(page, range, listCnt);
+		
+		model.addAttribute("pagination", pagination);
+		model.addAttribute("boardList", boardService.getBoardList(pagination));
 		return "board/index";
 	}
 	
