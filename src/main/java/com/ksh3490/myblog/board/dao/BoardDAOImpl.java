@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.ksh3490.myblog.board.model.BoardVO;
+import com.ksh3490.myblog.common.Pagination;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -16,9 +17,9 @@ public class BoardDAOImpl implements BoardDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<BoardVO> getBoardList() throws Exception {
+	public List<BoardVO> getBoardList(Pagination pagination) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("com.ksh3490.myblog.board.boardMapper.getBoardList");
+		return sqlSession.selectList("com.ksh3490.myblog.board.boardMapper.getBoardList", pagination);
 	}
 
 	@Override

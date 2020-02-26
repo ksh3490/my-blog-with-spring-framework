@@ -10,6 +10,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.ksh3490.myblog.board.dao.BoardDAO;
 import com.ksh3490.myblog.board.model.BoardVO;
+import com.ksh3490.myblog.common.Pagination;
 import com.ksh3490.myblog.error.controller.NotFoundException;
 
 @Service
@@ -18,9 +19,9 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO boardDAO;
 	
-	public List<BoardVO> getBoardList() throws Exception {
+	public List<BoardVO> getBoardList(Pagination pagination) throws Exception {
 		// TODO Auto-generated method stub
-		return boardDAO.getBoardList();
+		return boardDAO.getBoardList(pagination);
 	}
 
 	@Override
