@@ -62,6 +62,16 @@
 			url = url + "?bid=" + bid;
 			location.href = url;
 		}
+		
+		// Search Button Event
+		$(document).on('click', '#btnSearch', function(e){
+			e.preventDefault();
+			var url = "${pageContext.request.contextPath}/board/getBoardList";
+			url = url + "?searchType=" + $('#searchType').val();
+			url = url + "&keyword=" + $('#keyword').val();
+			location.href = url;
+			console.log(url);
+		});
 	</script>
 </head>
 <body>
