@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
 <title>Board Index</title>
+
 	<script>
 		//Prev Button Event
 		function fn_prev(page, range, rangeSize){
@@ -18,7 +20,9 @@
 			var url = "${pageContext.request.contextPath}/board/getBoardList";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
-			
+
+//			var url = "${getBoardList}";
+
 			location.href = url;
 		}
 		
@@ -27,6 +31,8 @@
 			var url = "${pageContext.request.contextPath}/board/getBoardList";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
+			
+//			var url = "${getBoardList}";
 			
 			location.href = url;
 		}
@@ -39,6 +45,8 @@
 			var url = "${pageContext.request.contextPath}/board/getBoardList";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
+			
+//			var url = "${getBoardList}";
 			
 			location.href = url;
 		}
@@ -58,6 +66,12 @@
 </head>
 <body>
 <article>
+<!--  
+  <c:url var="getBoardList" value="/board/getBoardList">
+	 <c:param name="page" value="${pagination.page }"/>
+	 <c:param name="range" value="${pagination.range }"/>
+  </c:url>
+ -->
 	<div class="container">
 		<div class="table-responsive">
 			<h2>Board List</h2>
@@ -106,7 +120,7 @@
 			<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">글쓰기</button>
 		</div>
 		
-		<!-- pagination -->
+		<!-- pagination(s) -->
 		<div id="paginationBox">
 			<ul class="pagination">
 				<c:if test="${pagination.prev }">
@@ -114,8 +128,9 @@
 				</c:if>
 				
 				<c:forEach begin="${pagination.startPage }" end="${pagination.endPage }" var="idx">
-					<li class="page-item" <c:out value="${pagination.page == idx ? 'active' : "}"/>>
-					<a class="page-link" href="#" onClick="fn_pagination('${idx }', '${pagination.range }', '${pagination.rangeSize }')">${idx }</a></li>
+					<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/>">  
+						<a class="page-link" href="#" onClick="fn_pagination('${idx }', '${pagination.range }', '${pagination.rangeSize }')">${idx }</a>
+					</li>
 				</c:forEach>
 				
 				<c:if test="${pagination.next }">
@@ -123,7 +138,25 @@
 				</c:if>
 			</ul>
 		</div>
-		<!-- pagination -->
+		<!-- pagination(e) -->
+		<!-- search(s) -->
+		<div class="form-group row justify-content-center">
+			<div class="w100" style="padding-right:10px">
+				<select class="form-control form-control-sm" name="searchType" id="searchType">
+					<option value="title">제목</option>
+					<option value="Content">제목</option>
+					<option value="title">제목</option>
+				</select>
+			</div>
+			<div class="w300" style="padding-right:10px">
+				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+			</div>
+			<div>
+				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+			</div>
+		</div>
+		<!-- search(e) -->
+		
 	</div>
 </article>
 </body>
