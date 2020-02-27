@@ -11,28 +11,25 @@
 
 <title>Board Index</title>
 
+<c:url var="getBoardListURL" value="/board/getBoardList"></c:url>
 	<script>
 		//Prev Button Event
 		function fn_prev(page, range, rangeSize){
 			var page = ((range - 2) * rangeSize) + 1;
 			var range = range - 1;
 			
-			var url = "${pageContext.request.contextPath}/board/getBoardList";
+			var url = "${getBoardListURL}";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
-
-//			var url = "${getBoardList}";
 
 			location.href = url;
 		}
 		
 		//Clicking Page Button
 		function fn_pagination(page, range, rangeSize, searchType, keyword){
-			var url = "${pageContext.request.contextPath}/board/getBoardList";
+			var url = "${getBoardListURL}";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
-			
-//			var url = "${getBoardList}";
 			
 			location.href = url;
 		}
@@ -42,11 +39,9 @@
 			var page = parseInt(range * rangeSize) + 1;
 			var range = parseInt(range) + 1;
 			
-			var url = "${pageContext.request.contextPath}/board/getBoardList";
+			var url = "${getBoardListURL}";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
-			
-//			var url = "${getBoardList}";
 			
 			location.href = url;
 		}
@@ -66,7 +61,7 @@
 		// Search Button Event
 		$(document).on('click', '#btnSearch', function(e){
 			e.preventDefault();
-			var url = "${pageContext.request.contextPath}/board/getBoardList";
+			var url = "${getBoardListURL}";
 			url = url + "?searchType=" + $('#searchType').val();
 			url = url + "&keyword=" + $('#keyword').val();
 			location.href = url;
@@ -76,12 +71,7 @@
 </head>
 <body>
 <article>
-<!--  
-  <c:url var="getBoardList" value="/board/getBoardList">
-	 <c:param name="page" value="${pagination.page }"/>
-	 <c:param name="range" value="${pagination.range }"/>
-  </c:url>
- -->
+
 	<div class="container">
 		<div class="table-responsive">
 			<h2>Board List</h2>
