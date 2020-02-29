@@ -6,12 +6,10 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.ksh3490.myblog.board.dao.BoardDAO;
 import com.ksh3490.myblog.board.model.BoardVO;
-import com.ksh3490.myblog.common.Pagination;
-import com.ksh3490.myblog.error.controller.NotFoundException;
+import com.ksh3490.myblog.common.Search;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -19,9 +17,9 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO boardDAO;
 	
-	public List<BoardVO> getBoardList(Pagination pagination) throws Exception {
+	public List<BoardVO> getBoardList(Search search) throws Exception {
 		// TODO Auto-generated method stub
-		return boardDAO.getBoardList(pagination);
+		return boardDAO.getBoardList(search);
 	}
 
 	@Override
@@ -57,9 +55,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int getBoardListCnt() throws Exception {
+	public int getBoardListCnt(Search search) throws Exception {
 		// TODO Auto-generated method stub
-		return boardDAO.getBoardListCnt();
+		return boardDAO.getBoardListCnt(search);
 	}
 
 }
