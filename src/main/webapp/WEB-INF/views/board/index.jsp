@@ -144,7 +144,7 @@
 			<div class="w100" style="padding-right:10px">
 				<select class="form-control form-control-sm" name="searchType" id="searchType">
 					<option value="title">제목</option>
-					<option value="Content">제목</option>
+					<option value="content">제목</option>
 					<option value="title">제목</option>
 				</select>
 			</div>
