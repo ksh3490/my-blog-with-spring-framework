@@ -144,8 +144,8 @@
 			<div class="w100" style="padding-right:10px">
 				<select class="form-control form-control-sm" name="searchType" id="searchType">
 					<option value="title">제목</option>
-					<option value="content">제목</option>
-					<option value="title">제목</option>
+					<option value="content">본문</option>
+					<option value="reg_id">작성자</option>
 				</select>
 			</div>
 			<div class="w300" style="padding-right:10px">
