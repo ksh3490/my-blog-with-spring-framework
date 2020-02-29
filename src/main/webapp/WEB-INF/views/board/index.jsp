@@ -14,13 +14,15 @@
 <c:url var="getBoardListURL" value="/board/getBoardList"></c:url>
 	<script>
 		//Prev Button Event
-		function fn_prev(page, range, rangeSize){
+		function fn_prev(page, range, rangeSize, searchType, keyword){
 			var page = ((range - 2) * rangeSize) + 1;
 			var range = range - 1;
 			
 			var url = "${getBoardListURL}";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
+			url = url + "&searchType=" + $('#searchType').val();
+			url = url + "&keyword=" + $('#keyword').val();
 
 			location.href = url;
 		}
@@ -30,18 +32,22 @@
 			var url = "${getBoardListURL}";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
+			url = url + "&searchType=" + $('#searchType').val();
+			url = url + "&keyword=" + $('#keyword').val();
 			
 			location.href = url;
 		}
 		
 		//Next Button Event
-		function fn_next(page, range, rangeSize){
+		function fn_next(page, range, rangeSize, searchType, keyword){
 			var page = parseInt(range * rangeSize) + 1;
 			var range = parseInt(range) + 1;
 			
 			var url = "${getBoardListURL}";
 			url = url + "?page=" + page;
 			url = url + "&range=" + range;
+			url = url + "&searchType=" + $('#searchType').val();
+			url = url + "&keyword=" + $('#keyword').val();
 			
 			location.href = url;
 		}
@@ -149,7 +155,7 @@
 				</select>
 			</div>
 			<div class="w300" style="padding-right:10px">
-				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+				<input type="text" class="form-control form-control-sm" name="keyword" id="keyword" value="${pagination.keyword }">
 			</div>
 			<div>
 				<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>

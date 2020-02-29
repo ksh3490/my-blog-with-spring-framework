@@ -31,10 +31,12 @@ public class BoardController {
 			@RequestParam(required = false, defaultValue = "1") int range,
 			
 			@RequestParam(required = false, defaultValue = "title") String searchType,
-			@RequestParam(required = false) String keyword
+			@RequestParam(required = false) String keyword,
+			@ModelAttribute("search") Search search
 			) throws Exception{
 		
-		Search search = new Search();
+
+		model.addAttribute("search", search);
 		search.setSearchType(searchType);
 		search.setKeyword(keyword);
 
