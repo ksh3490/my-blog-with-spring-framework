@@ -8,7 +8,6 @@ import com.ksh3490.myblog.common.Search;
 
 public interface BoardDAO {
 	
-	// Board DAO
 	public List<BoardVO> getBoardList(Search search) throws Exception;
 	public BoardVO getBoardContent(int bid) throws Exception;
 	public int insertBoard(BoardVO boardVO) throws Exception;

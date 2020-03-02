@@ -59,6 +59,7 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("com.ksh3490.myblog.board.boardMapper.getBoardListCnt", search);
 	}
 
+	// Reply Methods
 	@Override
 	public List<ReplyVO> getReplyList(int bid) throws Exception {
 		// TODO Auto-generated method stub
