@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.ksh3490.myblog.board.model.BoardVO;
+import com.ksh3490.myblog.board.model.ReplyVO;
 import com.ksh3490.myblog.common.Search;
 
 @Repository
@@ -56,6 +57,30 @@ public class BoardDAOImpl implements BoardDAO {
 	public int getBoardListCnt(Search search) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("com.ksh3490.myblog.board.boardMapper.getBoardListCnt", search);
+	}
+
+	@Override
+	public List<ReplyVO> getReplyList(int bid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("com.ksh3490.myblog.board.replyMapper.getReplyList", bid);
+	}
+
+	@Override
+	public int saveReply(ReplyVO replyVO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("com.ksh3490.myblog.board.replyMapper.saveReply", replyVO);
+	}
+
+	@Override
+	public int updateReply(ReplyVO replyVO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.update("com.ksh3490.myblog.board.replyMapper.updateReply", replyVO);
+	}
+
+	@Override
+	public int deleteReply(int rid) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("com.ksh3490.myblog.board.replyMapper.deleteReply", rid);
 	}
 
 }
