@@ -8,7 +8,6 @@ import com.ksh3490.myblog.common.Search;
 
 public interface BoardService {
 	
-	// Board Service
 	public List<BoardVO> getBoardList(Search search) throws Exception;
 	public void insertBoard(BoardVO boardVO) throws Exception;
 	public BoardVO getBoardContent(int bid) throws Exception;
