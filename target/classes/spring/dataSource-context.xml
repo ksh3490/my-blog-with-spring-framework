@@ -17,10 +17,10 @@
 	
 	<!-- dataSource Object Setting -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/myblogdb?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
-		<property name="username" value="bloguser" />
-		<property name="password" value="myblog" />
+		<property name="driverClassName" value="#{datasource['jdbc.driverClassName']}" />
+		<property name="url" value="#{datasource['jdbc.url']}"/>
+		<property name="username" value="#{datasource['jdbc.username']}" />
+		<property name="password" value="#{datasource['jdbc.password']}" />
 	</bean>
 	
 	<!-- SqlSessionFactory Object Setting -->
