@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ksh3490.myblog.board.dao.BoardDAO;
 import com.ksh3490.myblog.board.model.BoardVO;
+import com.ksh3490.myblog.board.model.ReplyVO;
 import com.ksh3490.myblog.common.Search;
 
 @Service
@@ -58,6 +59,31 @@ public class BoardServiceImpl implements BoardService {
 	public int getBoardListCnt(Search search) throws Exception {
 		// TODO Auto-generated method stub
 		return boardDAO.getBoardListCnt(search);
+	}
+
+	// Reply Methods
+	@Override
+	public List<ReplyVO> getReplyList(int bid) throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.getReplyList(bid);
+	}
+
+	@Override
+	public int saveReply(ReplyVO replyVO) throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.saveReply(replyVO);
+	}
+
+	@Override
+	public int updateReply(ReplyVO replyVO) throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.updateReply(replyVO);
+	}
+
+	@Override
+	public int deleteReply(int rid) throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.deleteReply(rid);
 	}
 
 }
