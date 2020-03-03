@@ -80,7 +80,7 @@
 
 	<div class="container">
 		<div class="table-responsive">
-			<h2>Board List</h2>
+			<h2>Turtle Board List </h2>
 			<table class="table table-striped table-sm">
 				<colgroup>
 					<col style="width:5%;" />
