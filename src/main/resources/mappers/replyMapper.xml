@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="com.ksh3490.myblog.board.replyMapper">
-	<select id="getReplyList" resultType="com..ksh3490.myblog.board.model.ReplyVO">
+	<select id="getReplyList" resultType="com.ksh3490.myblog.board.model.ReplyVO">
 		SELECT
 			RID,
 			BID,
