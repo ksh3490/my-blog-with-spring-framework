@@ -50,7 +50,7 @@
 				}else{
 					$(result).each(function(){
 						htmls += '<div class="media text-muted pt-3" id="rid' + this.rid + '">';
-						
+						htmls += '<svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:32x32">';
 					})
 				}
 			}
