@@ -33,7 +33,30 @@
 		url = url + "?bid=" + ${boardContent.bid};
 		location.href = url;
 	});
-	
+
+	//Reply List
+	function showReplyList(){
+		var url = "${pageContext.request.contextPath}/restBoard/getReplyList";
+		var paramData = {"bid" : "${boardContent.bid}"};
+		$.ajax({
+			type: 'POST',
+			url: url,
+			data: paramData,
+			dataType: 'json',
+			success: function(result){
+				var htmls = "";
+				if(result.length < 1){
+					htmls.push("등록된 댓글이 없습니다.");
+				}else{
+					$(result).each(function(){
+						htmls += '<div class="media text-muted pt-3" id="rid' + this.rid + '">';
+						
+					})
+				}
+			}
+		
+		})
+	}
 </script>
 </head>
 <body>
