@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 
 <!DOCTYPE html>
@@ -118,7 +117,6 @@
 				</form:form>
 			</div>
 			<!-- Reply Form {e} -->
-			
 			<!-- Reply List {s} -->
 			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top:10px">
 				<h6 class="border-bottom pb-2 mb-0">Reply List</h6>
