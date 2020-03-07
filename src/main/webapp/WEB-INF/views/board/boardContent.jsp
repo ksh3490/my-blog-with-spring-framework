@@ -12,6 +12,10 @@
 <title>board</title>
 
 <script>
+	$(document).ready(function(){
+		showReplyList();
+	})
+	
 	// Back to List Event
 	$(document).on("click", "#btnList", function(){
 		location.href = "${pageContext.request.contextPath}/board/getBoardList";
