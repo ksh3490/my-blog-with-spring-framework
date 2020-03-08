@@ -75,11 +75,9 @@
 						htmls += this.content;
 						htmls += '</p>';
 						htmls += '</div>';
-						
 					}); //each {e}
 				}
 				$("#replyList").html(htmls);
-					
 			} //Ajax success {e}
 		}); //Ajax {e}
 	}
@@ -121,6 +119,7 @@
 				</form:form>
 			</div>
 			<!-- Reply Form {e} -->
+			
 			<!-- Reply List {s} -->
 			<div class="my-3 p-3 bg-white rounded shadow-sm" style="padding-top:10px">
 				<h6 class="border-bottom pb-2 mb-0">Reply List</h6>
