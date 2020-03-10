@@ -87,7 +87,7 @@
 		var replyContent = $('#content').val();
 		var replyReg_id = $('#reg_id').val();
 		
-		var paramData = JSON.stringfy({"content": replyContent,
+		var paramData = JSON.stringify({"content": replyContent,
 			"reg_id": replyReg_id,
 			"bid": '${boardContent.bid}'
 		});
@@ -96,7 +96,7 @@
 				"X-HTTP-Method-Override": "POST"};
 		
 		$.ajax({
-			url: "${saveReplyURL}",
+			url: "${pageContext.request.contextPath}/restBoard/saveReply",
 			headers: headers,
 			data: paramData,
 			type: 'POST',
@@ -110,6 +110,7 @@
 			
 			error: function(error){
 				console.log("에러: " + error);
+				console.log("데이터: " + data);
 			}
 		});
 	});
