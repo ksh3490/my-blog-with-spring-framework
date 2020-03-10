@@ -81,6 +81,38 @@
 			} //Ajax success {e}
 		}); //Ajax {e}
 	}
+	
+	//Reply Save Btn Click Event
+	$(document).on('click', '#btnReplySave', function(){
+		var replyContent = $('#content').val();
+		var replyReg_id = $('#reg_id').val();
+		
+		var paramData = JSON.stringfy({"content": replyContent,
+			"reg_id": replyReg_id,
+			"bid": '${boardContent.bid}'
+		});
+		
+		var headers = {"Content-Type": "application/json",
+				"X-HTTP-Method-Override": "POST"};
+		
+		$.ajax({
+			url: "${saveReplyURL}",
+			headers: headers,
+			data: paramData,
+			type: 'POST',
+			dataType: 'text',
+			success: function(result){
+				showReplyList();
+				
+				$('#content').val('');
+				$('#reg_id').val('');
+			},
+			
+			error: function(error){
+				console.log("에러: " + error);
+			}
+		});
+	});
 </script>
 </head>
 <body>
