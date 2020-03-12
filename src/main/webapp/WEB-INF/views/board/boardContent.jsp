@@ -53,7 +53,7 @@
 			success: function(result){ 
 				var htmls = "";
 				if(result.length < 1){
-					htmls.push("등록된 댓글이 없습니다.");
+					htmls.concat("등록된 댓글이 없습니다.");
 				}else{
 					
 					//each {s}
@@ -110,7 +110,6 @@
 			
 			error: function(error){
 				console.log("에러: " + error);
-				console.log("데이터: " + data);
 			}
 		});
 	});
