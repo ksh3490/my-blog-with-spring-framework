@@ -7,6 +7,7 @@
 
 <c:url var="saveReplyURL" value="/restBoard/saveReply"></c:url>
 <c:url var="updateReplyURL" value="/restBoard/updateReply"></c:url>
+<c:url var="deleteReplyURL" value="/restBoard/deleteReply"></c:url>
 
 <!DOCTYPE html>
 <html>
