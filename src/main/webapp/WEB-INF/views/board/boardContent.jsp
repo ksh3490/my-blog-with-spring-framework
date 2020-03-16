@@ -114,7 +114,7 @@
 		});
 	});
 	
-	//Reply Update Btn Click Event
+	//Reply Edit Btn Click Event
 	function fn_editReply(rid, reg_id, content){
 		var htmls = "";
 		htmls += '<div class="media text-muted pt-3" id="rid' + rid + '">';
@@ -139,6 +139,33 @@
 	
 		$('#rid' + rid).replaceWith(htmls);
 		$('#rid' + rid + '#editContent').focus();
+	}
+	
+	//Reply Update Btn Click Event
+	function fn_updateReply(rid, reg_id){
+		var replyEditContent = $('#editContent').val();
+		
+		var paramData = JSON.stringfy({"content": replyEditContent,
+			"rid": rid
+			});
+		
+		var headers = {"Content-Type": "application/json",
+				"X-HTTP-Method-Override": "POST"};
+		
+		$.ajax({
+			url: "${updateReplyURL}",
+			headers: headers,
+			data: paramData,
+			type: "POST",
+			dataType: "text",
+			success: function(result){
+				console.log(result);
+				showReplyList();
+			},
+			error: function(error){
+				console.log("에러: " + error);
+			}
+		});
 	}
 </script>
 </head>
