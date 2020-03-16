@@ -46,4 +46,16 @@ public class RestBoardController {
 		return result;
 	}
 	
+	@RequestMapping(value = "/updateReply", method = {RequestMethod.GET, RequestMethod.POST})
+	public Map<String, Object> updateReply(@RequestBody ReplyVO replyVO) throws Exception{
+		Map<String, Object> result = new HashMap<>();
+		try {
+			boardService.updateReply(replyVO);
+			result.put("status", "OK");
+		}catch (Exception e) {
+			e.printStackTrace();
+			result.put("status", "False");
+		}
+		return result;
+	}
 }
