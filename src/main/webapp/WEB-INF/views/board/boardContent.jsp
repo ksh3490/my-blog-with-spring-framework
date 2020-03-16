@@ -5,6 +5,9 @@
 
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 
+<c:url var="saveReplyURL" value="/restBoard/saveReply"></c:url>
+<c:url var="updateReplyURL" value="/restBoard/updateReply"></c:url>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,7 +99,7 @@
 				"X-HTTP-Method-Override": "POST"};
 		
 		$.ajax({
-			url: "${pageContext.request.contextPath}/restBoard/saveReply",
+			url: "${saveReplyURL}",
 			headers: headers,
 			data: paramData,
 			type: 'POST',
