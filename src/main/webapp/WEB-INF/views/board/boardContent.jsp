@@ -148,7 +148,7 @@
 	function fn_updateReply(rid, reg_id){
 		var replyEditContent = $('#editContent').val();
 		
-		var paramData = JSON.stringfy({"content": replyEditContent,
+		var paramData = JSON.stringify({"content": replyEditContent,
 			"rid": rid
 			});
 		
