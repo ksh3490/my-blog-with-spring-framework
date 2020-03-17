@@ -171,6 +171,24 @@
 			}
 		});
 	}
+	
+	//Reply Delete Btn Click Event
+	function fn_deleteReply(rid){
+		var paramDate = {"rid": rid};
+		
+		$.ajax({
+			url: "${deleteReplyURL}",
+			data: paramData,
+			type: "POST",
+			dataType: "text",
+			success: function(result){
+				showReplyList();
+			},
+			error: function(error){
+				console.log("에러: " + error);
+			}
+		});
+	}
 </script>
 </head>
 <body>
