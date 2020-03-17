@@ -174,7 +174,7 @@
 	
 	//Reply Delete Btn Click Event
 	function fn_deleteReply(rid){
-		var paramDate = {"rid": rid};
+		var paramData = {"rid": rid};
 		
 		$.ajax({
 			url: "${deleteReplyURL}",
@@ -182,6 +182,7 @@
 			type: "POST",
 			dataType: "text",
 			success: function(result){
+				console.log(result);
 				showReplyList();
 			},
 			error: function(error){
