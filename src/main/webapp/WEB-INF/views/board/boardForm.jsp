@@ -79,6 +79,7 @@
 			
 		</div>
 	</article>
+	<script src="${pageContext.request.contextPath}/resources/common/js/ckeditor.js"></script>
 
 </body>
 </html>
