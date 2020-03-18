@@ -12,6 +12,7 @@
 
 <title>Insert title here</title>
 
+<script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
 <script>
 	$(document).on('click', '#btnSave', function(e){
 		e.preventDefault();
