@@ -21,7 +21,11 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.ksh3490.myblog" />
+	<context:component-scan base-package="com.ksh3490.myblog">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
 	
 	
 	

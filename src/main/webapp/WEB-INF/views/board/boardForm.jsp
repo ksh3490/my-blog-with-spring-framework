@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
 <title>Insert title here</title>
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
 <!-- <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script> -->
 <script>
 	$(document).on('click', '#btnSave', function(e){
@@ -82,7 +82,7 @@
 	<script>
 		CKEDITOR.replace("content");
 	</script>
-	<!-- <script src="${pageContext.request.contextPath}/resources/common/js/ckeditor.js"></script> -->
+	<script src="${pageContext.request.contextPath}/resources/common/js/ckeditor.js"></script>
 
 </body>
 </html>
