@@ -26,6 +26,7 @@ public class BoardDAOTest {
 	@Inject
 	private BoardDAO boardDAO;
 	
+	/* <-- getBoardList의 search 객체를 테스트에 적용할 방안 구상할 것
 	@Ignore
 	@Test
 	public void testGetBoardList() throws Exception{
@@ -39,6 +40,7 @@ public class BoardDAOTest {
 			logger.info("데이터가 없습니다.");
 		}
 	}
+	*/
 	
 	@Ignore
 	@Test
@@ -59,6 +61,7 @@ public class BoardDAOTest {
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void testInsertBoard() throws Exception {
 		BoardVO boardVO = new BoardVO();
